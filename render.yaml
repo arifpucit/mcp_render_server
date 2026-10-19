@@ -1,0 +1,17 @@
+# Render Blueprint: Dashboard → New → Blueprint → pick this repo.
+# Render sees uv.lock and adds uv; Python version comes from .python-version.
+services:
+  - type: web
+    name: mcp-render-server
+    runtime: python
+    plan: free
+    buildCommand: uv sync --frozen
+    startCommand: uv run --frozen main.py
+    healthCheckPath: /health
+    envVars:
+      # Asked for when you create the Blueprint (get a free key at weatherapi.com)
+      - key: WEATHER_API_KEY
+        sync: false
+      # Render generates a random token; copy it from the service's Environment tab
+      - key: MCP_API_TOKEN
+        generateValue: true

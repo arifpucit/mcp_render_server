@@ -1,7 +1,7 @@
 [project]
 name = "mcp-render-server"
 version = "0.1.0"
-description = "Add your description here"
+description = "A demo remote MCP server (FastMCP over HTTP) deployed on Render"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
